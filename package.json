@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "dist/my-element.es.js",
+  "main": "dist/main-[hash].js",
   "exports": {
     ".": "./dist/my-element.es.js"
   },
@@ -15,19 +15,25 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "watch:css": "postcss src/index.css -o dist/styles.css -w",
-    "build:css": "postcss src/index.css -o dist/styles.css"
+    "serve": "npm run build && vite preview"
   },
   "dependencies": {
     "lit": "^2.6.1"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
     "@types/node": "^18.11.19",
+    "@web/rollup-plugin-copy": "^0.3.0",
+    "@web/rollup-plugin-html": "^1.11.0",
     "cssnano": "^5.1.14",
     "postcss-cli": "^10.1.0",
     "postcss-preset-env": "^8.0.1",
     "prettier": "^2.8.3",
+    "rollup": "^3.14.0",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-summary": "^2.0.0",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   }
