@@ -4,6 +4,7 @@ import { copy } from '@web/rollup-plugin-copy';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import summary from 'rollup-plugin-summary';
+import minifyHTML from 'rollup-plugin-minify-html-literals';
 
 const outDir = resolve(__dirname, 'dist');
 
@@ -32,6 +33,7 @@ export default defineConfig({
         format: 'cjs',
       },
       plugins: [
+        minifyHTML.default(),
         nodeResolve(),
         terser({
           module: true,
